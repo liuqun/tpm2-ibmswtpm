@@ -1,0 +1,33 @@
+name: tpm20softwaresimulator
+version: '974'
+summary: TPM 2.0 Simulator
+description: |
+  Snap package for IBM's software TPM 2.0 simulator.
+  Based on the TPM 2.0 specification's source code donated by Microsoft,
+  with additional files to complete the implementation donated by Ken Goldman.
+  Original homepage is at https://sourceforge.net/projects/ibmswtpm2/
+grade: devel
+confinement: strict
+apps:
+  tpm20softwaresimulator:
+    command: tpm_server
+    plugs: [home, network-bind]
+parts:
+  tpm2-simulator:
+    plugin: make
+    build-packages:
+      - gcc
+      - libc6-dev
+      - libssl-dev
+      - make
+    source: https://downloads.sourceforge.net/project/ibmswtpm2/ibmtpm974.tar.gz
+    source-checksum: sha256/8e45d86129a0adb95fee4cee51f4b1e5b2d81ed3e55af875df53f98f39eb7ad7
+    source-type: tar
+    source-subdir: src
+    prepare: |
+      echo "Start applying local patches..."
+      # Example:
+      # patch -Np1 < ${}/patches/xxxx.patch
+      echo "Local patches are applied."
+    artifacts:
+      - tpm_server
