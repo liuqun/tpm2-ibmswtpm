@@ -20,14 +20,10 @@ parts:
       - libc6-dev
       - libssl-dev
       - make
-    source: https://downloads.sourceforge.net/project/ibmswtpm2/ibmtpm974.tar.gz
-    source-checksum: sha256/8e45d86129a0adb95fee4cee51f4b1e5b2d81ed3e55af875df53f98f39eb7ad7
-    source-type: tar
-    source-subdir: src
-    prepare: |
-      echo "Start applying local patches..."
-      # Example:
-      # patch -Np1 < ${}/patches/xxxx.patch
-      echo "Local patches are applied."
+    source: src
+    organize:
+      build/src/tpm_server: tpm_server
     artifacts:
-      - tpm_server
+      - build/src/tpm_server
+    prime:
+      - -build
