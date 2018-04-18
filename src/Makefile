@@ -13,5 +13,5 @@ all:
 	mkdir -p build
 	tar axf $(TARBALL_FILENAME) -C build
 	cd build && \
-	for file in "$(PATCHES)" ; do patch -Np1 < ../$${file} ; done
+	if test "x$(PATCHES)" != "x" ; then for file in "$(PATCHES)" ; do patch -Np1 < ../$${file} ; done ; fi
 	$(MAKE) -C build/src -j$$(nproc)
