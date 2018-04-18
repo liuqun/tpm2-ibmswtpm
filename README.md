@@ -1,3 +1,13 @@
+# Build Under Fedora 28
+## Install requirements
+```
+sudo dnf install gcc make patch openssl-devel
+```
+## Build
+```
+make -C src
+```
+
 # Build Under Ubuntu 16.04 LTS
 ## Install snapcraft
 ```
