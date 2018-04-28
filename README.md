@@ -18,4 +18,4 @@ sudo apt-get install -y snapcraft
 snapcraft
 ```
 ## Result
-Copy prime/tpm_server to /usr/local/bin/ or anywhere else.
+Copy prime/tpm\_server to /usr/local/bin/ or anywhere else.
