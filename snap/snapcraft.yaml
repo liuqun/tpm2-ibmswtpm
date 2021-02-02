@@ -1,5 +1,5 @@
 name: tpm20softwaresimulator
-version: '974'
+version: '1119'
 summary: TPM 2.0 Simulator
 description: |
   Snap package for IBM's software TPM 2.0 simulator.
